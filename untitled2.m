@@ -9,4 +9,4 @@ Ts = 0.1; % Adjust this according to your desired sampling time
 sys_s = tf(numerator, denominator);
 sys_z_c2d = c2d(sys_s, Ts); % 'zoh' stands for zero-order hold
 
-%pidTuner(sys_z_c2d,'pid');
+pidTuner(sys_z_c2d,'pid');
