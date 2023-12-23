@@ -27,9 +27,9 @@ void setup() {
   Serial.begin(9600);
 
   // Set pin modes
-  pinMode(6, OUTPUT);
-  pinMode(7, OUTPUT);
-  pinMode(8, OUTPUT);
+  pinMode(iN3, OUTPUT);
+  pinMode(iN4, OUTPUT);
+  pinMode(ENA, OUTPUT);
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
 
