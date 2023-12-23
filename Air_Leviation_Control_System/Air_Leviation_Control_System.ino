@@ -67,7 +67,7 @@ void loop() {
   Ultrasonic();
 
   // Update Input with current distance from the setpoint
-  Input = 30 - distance;
+  Input = distance;
 
   // Set desired setpoint
   SetPoint = 15;
@@ -81,4 +81,20 @@ void loop() {
   // Motor control logic
   digitalWrite(iN3, 1);
   digitalWrite(iN4, 0);
+
+  // Print relevant information to the serial monitor
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.print(" cm\t");
+  Serial.print("Setpoint: ");
+  Serial.print(SetPoint);
+  Serial.print(" cm\t");
+  Serial.print("Output: ");
+  Serial.print(output);
+  Serial.print("\tSpeed: ");
+  Serial.println(output);  // Assuming 255 is full speed
+
+  // Delay for better readability in the serial monitor
+  delay(500);
 }
+
