@@ -2,18 +2,13 @@
 #include <LiquidCrystal_I2C.h>
 #include <PID_v1.h>
 
-// PID constants, set from MATLAB PID tuner
-#define kp 0.897
-#define ki 0.1
-#define kd 0.01
-
 // Variables for PID control
 double Input;       // Current value (feedback)
-double output = 170; // Output value (control signal to motor)
+double output = 200; // Output value (control signal to motor)
 double SetPoint;    // Desired setpoint
 
 // Create PID controller object
-PID myPID(&Input, &output, &SetPoint, kp, ki, kd, REVERSE);
+PID myPID(&Input, &output, &SetPoint, REVERSE);
 
 // Pin definitions for ultrasonic sensor and motor control
 #define trigPin 9
@@ -71,20 +66,16 @@ void loop() {
   // Update Input with current distance from the setpoint
   Input = distance;
 
-  // Set desired setpoint
-  SetPoint = 15;
+  // Check if MATLAB sent new setpoint
+  if (Serial.available() > 0) {
+    SetPoint = Serial.parseFloat();
+  }
 
-  // Compute PID control signal
   myPID.Compute();
-
-  // Apply PID output to control motor speed
   analogWrite(ENA, output);
-
-  // Motor control logic
   digitalWrite(iN3, HIGH);
   digitalWrite(iN4, LOW);
 
-  // Print relevant information to the serial monitor
   Serial.print("Distance: ");
   Serial.print(distance);
   Serial.print(" cm\t");
@@ -92,10 +83,9 @@ void loop() {
   Serial.print(SetPoint);
   Serial.print(" cm\t");
   Serial.print("Speed: ");
-  Serial.print(output); // Assuming 255 is full speed
+  Serial.print(output);
   Serial.println(" PWM");
 
-  // Print information to the LCD
   lcd.clear();
   lcd.setCursor(0, 0);
   lcd.print("D: ");
@@ -106,6 +96,13 @@ void loop() {
   lcd.setCursor(0, 1);
   lcd.print("S: ");
   lcd.print(output);
+
+  // Send data back to MATLAB for plotting
+  Serial.print(distance);
+  Serial.print(",");
+  Serial.print(output);
+  Serial.print(",");
+  Serial.println(SetPoint);
 
   delay(100);
 }
