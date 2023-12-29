@@ -6,8 +6,8 @@ denominator = [1, 2.646, 6.462, 5.49];
 Ts = 0.1; % Adjust this according to your desired sampling time
 
 % Method 1: Using c2d function
-sys_s = tf(numerator, denominator);
-sys_z_c2d = c2d(sys_s, Ts, 'zoh'); % 'zoh' stands for zero-order hold
+TF = tf(numerator, denominator);
+sys_z_c2d = c2d(TF, Ts, 'zoh'); % 'zoh' stands for zero-order hold
 
 disp('Using c2d function:');
 disp('Z-domain numerator coefficients:');
@@ -23,3 +23,11 @@ disp('Z-domain numerator coefficients:');
 disp(num_z);
 disp('Z-domain denominator coefficients:');
 disp(den_z);
+
+%------------------------------------------------------
+syms s;
+TF_copy = (10.06)/(s^3 + 2.646 * s^2 + 6.462 * s + 5.49);
+Inverse_S_Domain_TF = ilaplace(TF_copy);
+disp(Inverse_S_Domain_TF);
+%disp(pretty(ztrans(Inverse_S_Domain_TF)));
+
