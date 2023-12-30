@@ -9,7 +9,7 @@ try
     while true
         % Read the data from the serial port
         data = readline(s);
-        
+        disp(data);
         % Check if the received data is empty (indicating a timeout)
         if isempty(data)
             disp('Timeout occurred. Exiting the loop.');
