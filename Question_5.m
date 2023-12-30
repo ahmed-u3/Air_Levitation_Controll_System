@@ -15,16 +15,18 @@ disp("-------------------------------------------------------------");
 
 %% Steady State Error Before PID in Z Domain
 
-sys = tf(numerator_plant, denominator_plant);
+sys_s = tf(numerator_plant, denominator_plant);
+sys_z_c2d = c2d(sys_s, Ts, 'zoh'); 
 
-SP = 15;                    % SetPoint --> Input Value
-[y,t] = step(SP*sys);       % get the response of the system to a step with amplitude SP
-SSerror_Before_PID = abs(SP-y(end));   % get the steady state error
+SP = 15;                                 % SetPoint --> Input Value
+[y, t] = step(SP * sys_z_c2d);           % get the response of the system to a step with amplitude SP
+SSerror_Before_PID = abs(SP - y(end));   % get the steady-state error
 
 % Display the steady-state error value
 disp(['Steady-State Error Before PID in Z Domain: ' num2str(SSerror_Before_PID)]);
 
 disp("-------------------------------------------------------------");
+
 %% Steady State Error After PID in Z Domain
 
 % S Domain PID transfer function
@@ -38,9 +40,12 @@ sys_pid_s = tf(num_pid_s, den_pid_s);
 % Create the discrete-time PID controller transfer function
 sys_pid_z = c2d(sys_pid_s, Ts, 'tustin');
 
-SP = 15;                    % SetPoint --> Input Value
-[y,t] = step(SP*sys_pid_z); % get the response of the system to a step with amplitude SP
-SSerror_After_PID = abs(SP-y(end));   % get the steady state error
+% Closed-loop transfer function after PID control
+sys_closed_loop_after = feedback(series(sys_z_c2d, sys_pid_z), 1);
+
+SP = 15;                                    % SetPoint --> Input Value
+[y, t] = step(SP * sys_closed_loop_after);  % get the response of the system to a step with amplitude SP
+SSerror_After_PID = abs(SP - y(end));       % get the steady-state error
 
 % Display the steady-state error value
 disp(['Steady-State Error After PID in Z Domain: ' num2str(SSerror_After_PID)]);
