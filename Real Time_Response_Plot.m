@@ -27,12 +27,8 @@ src.UserData.Count = src.UserData.Count + 1;
 disp(src.UserData.Count);
 % If 1001 data points have been collected from the Arduino, switch off the
 % callbacks and plot the data.
-if src.UserData.Count > 1001
+if src.UserData.Count > 300
     configureCallback(src, "off");
     plot(src.UserData.Data(2:end));
 end
 end
-
-
-
-

@@ -19,11 +19,11 @@ Ts = 0.1;
 disp("------------------------------------------------");
 
 %% Total Transfer Function after PID in S Domain
-sys_plant = tf(numerator, denominator);  % Define your plant transfer function
+sys_s = tf(numerator, denominator);  % Define your plant transfer function
 sys_pid_s = tf(num_pid_s, den_pid_s);   % Define your continuous-time PID transfer function
 
 % Calculate the total transfer function in the Laplace (s) domain
-sys_total_s = sys_plant * sys_pid_s;
+sys_total_s = sys_s * sys_pid_s;
 
 % Display the total transfer function
 disp('Total Transfer Function in the Laplace (s) domain:')
@@ -35,11 +35,11 @@ disp(sys_total_s.Denominator);
 disp("------------------------------------------------");
 
 %% Total Transfer Function after PID in Z Domain
-sys_plant_z = c2d(sys_plant, Ts, 'tustin');  % Define your plant transfer function
+sys_c2d_z = c2d(sys_s, Ts, 'tustin');  % Define your plant transfer function
 sys_pid_z = c2d(sys_pid_s, Ts, 'tustin');   % Define your discrete-time PID transfer function using Tustin method
 
 % Calculate the total transfer function in the Z domain
-sys_total_z = series(sys_plant_z, sys_pid_z);
+sys_total_z = series(sys_z_c2d, sys_pid_z);
 
 % Display the total transfer function in the Z domain
 disp('Total Transfer Function in the Z domain:')

@@ -42,3 +42,34 @@ disp('Z-domain PID denominator coefficients:');
 disp(sys_pid_z.Denominator);
 
 disp("------------------------------------------------");
+
+%% Reason for using tustin
+
+% Check causality
+isCausal = isproper(sys_pid_s, 'Causal', true);
+
+% Check properness
+isProper = isproper(sys_pid_s, 'Strict', true);
+
+% Check stability
+isStable = all(pole(sys_pid_s) < 0);
+
+% Display the results
+disp(['Is causal: ' num2str(isCausal)]);
+disp(['Is proper: ' num2str(isProper)]);
+disp(['Is stable: ' num2str(isStable)]);
+
+% Only proceed with discretization if the system is causal, proper, and stable
+if isCausal && isProper && isStable
+    % Sample time (adjust as needed)
+    Ts = 0.1;
+
+    % Convert the continuous-time PID controller to a discrete-time PID controller
+    sys_pid_z = c2d(sys_pid_s, Ts, 'zoh');
+
+    % Display the transfer function in the Z domain
+    disp('Transfer Function in the Z domain:')
+    disp(sys_pid_z);
+else
+    disp('System is not suitable for discretization.');
+end

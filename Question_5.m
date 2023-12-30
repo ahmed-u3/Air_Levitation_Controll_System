@@ -41,10 +41,10 @@ sys_pid_s = tf(num_pid_s, den_pid_s);
 sys_pid_z = c2d(sys_pid_s, Ts, 'tustin');
 
 % Closed-loop transfer function after PID control
-sys_closed_loop_after = feedback(series(sys_z_c2d, sys_pid_z), 1);
+sys_closed_loop = feedback(series(sys_z_c2d, sys_pid_z), 1);
 
 SP = 15;                                    % SetPoint --> Input Value
-[y, t] = step(SP * sys_closed_loop_after);  % get the response of the system to a step with amplitude SP
+[y, t] = step(SP * sys_closed_loop);  % get the response of the system to a step with amplitude SP
 SSerror_After_PID = abs(SP - y(end));       % get the steady-state error
 
 % Display the steady-state error value
