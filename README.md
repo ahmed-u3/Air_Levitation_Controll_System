@@ -1,5 +1,7 @@
 # Air Levitation System Project
 
+![Project Image](Images/Air_Levitation_System.jpg)
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Team Members](#team-members)
@@ -12,14 +14,22 @@
 
 ## Introduction
 
-This repository contains the final project for the Modern Control Systems Course, led by Prof. Mahmoud Gamal and Eng. Mohammed Hatem. The project focuses on an Air Levitation System implemented by the following team members:
+This repository showcases the culminating project for the Modern Control Systems Course, centering around an Air Levitation System controlled through PID tuning using both MATLAB and Arduino. The primary objective is to elevate a foam ball to a specified setpoint, initially set at 15 cm, corresponding to the midpoint of a 30 cm 3D-printed tube.
 
-- Fares Hazem ([LinkedIn](https://www.linkedin.com/in/fares-hazem-b5590214b/))
-- Ahmed Dawood ([LinkedIn](https://www.linkedin.com/in/ahmed-dawod-088539223/))
-- Ahmed Yousri ([LinkedIn](https://www.linkedin.com/in/ahmed-yousry-807582196/))
-- Ahmed Ashraf ([LinkedIn](link-to-linkedin))
+## Course Instructors
 
-![Project Image](Images/Air_Levitation_System.jpg)
+- Prof. Mahmoud Gamal
+- Eng. Mohammed Hatem
+
+## Team Members
+- Fares Hazem 
+  - LinkedIn: ([Fares Hazem](https://www.linkedin.com/in/fares-hazem-b5590214b/))
+- Ahmed Dawood 
+  - LinkedIn: ([Ahmed Dawood](https://www.linkedin.com/in/ahmed-dawod-088539223/))
+- Ahmed Yousri
+  - LinkedIn: [Ahmed Yousri](https://www.linkedin.com/in/ahmed-yousry-807582196/)
+- Ahmed Ashraf 
+  - LinkedIn: ([Ahmed Ashraf](https://www.linkedin.com/in/telemachus19/))
 
 ## Hardware
 
