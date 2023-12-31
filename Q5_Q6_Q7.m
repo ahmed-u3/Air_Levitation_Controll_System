@@ -51,5 +51,5 @@ step(sys_z_c2d);
 title('Step Response Before PID Control');
 
 subplot(2,1,2);
-step(SP_Step * sys_closed_loop);
+step(SP * sys_closed_loop);
 title('Step Response After PID Control');

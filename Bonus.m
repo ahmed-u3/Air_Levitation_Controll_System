@@ -6,7 +6,7 @@ ki = input('Enter ki value: ');
 kd = input('Enter kd value: ');
 
 % Create a serial port object
-arduinoObj = serialport('COM4', 9600); 
+arduinoObj = serialport('COM6', 9600); 
 
 % Set a timeout for readline
 arduinoObj.Timeout = 10; % Set the timeout value in seconds
@@ -18,7 +18,7 @@ flush(arduinoObj);
 data = [];
 
 % Set the maximum number of data points to collect
-maxDataPoints = 1000;
+maxDataPoints = 100;
 
 % Continue reading data in a loop
 while true
@@ -37,7 +37,7 @@ while true
         continue;
     end
     
-    pause(1);
+    pause(0.1);
     % Write a set point and PID constants to the Arduino
     writeline(arduinoObj, ['SetPoint:' num2str(SetPoint)]);
     writeline(arduinoObj, ['kp:' num2str(kp)]);
@@ -62,6 +62,5 @@ title('Collected Data');
 grid on;
 
 % Close the serial port
-fclose(arduinoObj);
 delete(arduinoObj);
 clear arduinoObj;

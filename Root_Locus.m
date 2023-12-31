@@ -5,4 +5,3 @@ figure;
 rlocus(sys_z_c2d, '-b', sys_closed_loop, '-r');
 title('Root Locus Before and After Adding PID Control (Z Domain)');
 legend('Before PID', 'After PID');
-grid on;

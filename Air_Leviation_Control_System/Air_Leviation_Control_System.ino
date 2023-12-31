@@ -25,7 +25,7 @@ float duration, distance;
 int ENA = 10;
 
 // Initialize the LCD with its I2C address, number of columns, and number of rows
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27,16,2);
 
 void setup() {
   // Initialize serial communication
