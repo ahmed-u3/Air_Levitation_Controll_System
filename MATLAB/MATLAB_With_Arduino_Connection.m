@@ -1,3 +1,4 @@
+% Prompt the user to enter the SetPoint value
 SetPoint = input('Enter SetPoint: ');
 
 % Get PID constants from the user
@@ -5,8 +6,8 @@ kp = input('Enter kp value: ');
 ki = input('Enter ki value: ');
 kd = input('Enter kd value: ');
 
-% Create a serial port object
-arduinoObj = serialport('COM6', 9600); 
+% Create a serial port object for communication with Arduino
+arduinoObj = serialport('COM6', 9600);
 
 % Set a timeout for readline
 arduinoObj.Timeout = 10; % Set the timeout value in seconds
@@ -18,7 +19,7 @@ flush(arduinoObj);
 data = [];
 
 % Set the maximum number of data points to collect
-maxDataPoints = 100;
+maxDataPoints = 1000;
 
 % Continue reading data in a loop
 while true
@@ -26,28 +27,31 @@ while true
     receivedData = readline(arduinoObj);
     disp(receivedData);
 
-    % Extract numerical value from the received data
+    % Extract numerical value from the received data using regular expression
     tokens = regexp(receivedData, 'Distance: (\d+\.\d+)', 'tokens');
 
-    % Check if the tokens are not empty
+    % Check if the tokens are not empty and there is only one set of tokens
     if ~isempty(tokens) && numel(tokens) == 1
         distance = str2double(tokens{1}{1});
     else
         disp('Invalid data received.');
-        continue;
+        continue; % Skip the rest of the loop and continue with the next iteration
     end
     
+    % Pause for a short duration to avoid overwhelming the Arduino
     pause(0.1);
-    % Write a set point and PID constants to the Arduino
+
+    % Write the SetPoint and PID constants to the Arduino
     writeline(arduinoObj, ['SetPoint:' num2str(SetPoint)]);
     writeline(arduinoObj, ['kp:' num2str(kp)]);
     writeline(arduinoObj, ['ki:' num2str(ki)]);
     writeline(arduinoObj, ['kd:' num2str(kd)]);
 
-    % Convert the string data to numeric type and save it
+    % Convert the string data to numeric type and save it in the 'data' array
     data(end + 1) = 30 - distance;
     
     disp(length(data));
+
     % If the desired number of data points have been collected, break the loop
     if length(data) >= maxDataPoints
         break;
@@ -63,4 +67,4 @@ grid on;
 
 % Close the serial port
 delete(arduinoObj);
-clear arduinoObj;
+clear arduinoObj; % Clear the serial port object from the workspace

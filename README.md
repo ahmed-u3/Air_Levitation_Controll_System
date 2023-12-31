@@ -46,7 +46,7 @@ This repository showcases the culminating project for the Modern Control Systems
 
 ### MATLAB
 1. **PID Tuning and Analysis:** The MATLAB code for PID tuning and analysis is located in the `MATLAB` folder, named `Analysis.mlx`.
-2. **MATLAB-Arduino Connection:** Code enabling the user to assign the set point from MATLAB, plot real-time response, and send new PID parameters to Arduino. The file is in the `MATLAB` folder, named `Bonus.m`.
+2. **MATLAB-Arduino Connection:** Code enabling the user to assign the set point from MATLAB, plot real-time response, and send new PID parameters to Arduino. The file is in the `MATLAB` folder, named `MATLAB_With_Arduino_Connection.m`.
 3. **GUI for Interactive Display:** Interactive display with sliders for Kp and Ts, controlling Step-Response Plot and Pole-Zero Map Plot. Located in the `MATLAB` folder, named `GUI.mlapp`.
 
 ### Arduino
