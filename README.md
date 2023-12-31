@@ -33,14 +33,14 @@ This repository showcases the culminating project for the Modern Control Systems
 
 ## Hardware
 
-- 12v DC Fan (6 cm*6 cm)
-- L298N Motor Driver (2 Channels, H bridge)
-- Ultrasonic Sensor HC-SR04
-- Arduino UNO with Serial Cable
-- Foam Ball
-- LCD
-- BreadBoard
 - 12v 300mA Adaptor
+- L298N Motor Driver (2 Channels, H bridge)
+- Arduino UNO with Serial Cable
+- 12v DC Fan (6 cm*6 cm)
+- Ultrasonic Sensor HC-SR04
+- Foam Ball
+- LCD Using I2C
+- BreadBoard
 
 ## Software
 
@@ -53,29 +53,6 @@ This repository showcases the culminating project for the Modern Control Systems
 - Two codes are available in the `Arduino` folder:
   1. `Air_Leviation_Control_System_With_Connection_With_Matlab.ino`
   2. `Air_Leviation_Control_System_Without_Connection_With_Matlab.ino`
-
-## Project Structure
-
-- `MatLab/`
-  - `Analysis.mlx`
-  - `Bonus.m`
-  - `GUI.mlapp`
-- `Arduino/`
-  - `Air_Leviation_Control_System_With_Connection_With_Matlab.ino`
-  - `Air_Leviation_Control_System_Without_Connection_With_Matlab.ino`
-- `Images/`
-  - `Air Leviation Transfer Function.jpg`
-  - `Air_Levitation_System.jpg`
-  - `GUI.png`
-  - `Hardware Inside the Box.jpg`
-  - `Performance Graph after PID.png`
-  - `Performance.png`
-  - `PID Tuner.png`
-  - `Signature.jpg`
-- `Report.pdf`
-- `Schema.pdf`
-- `Videos/`
-  - Video With Explanation.mp4 (1 min)
 
 ## Images
 
