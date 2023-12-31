@@ -4,6 +4,7 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Course Instructors](#course-instructors)
 - [Team Members](#team-members)
 - [Hardware](#hardware)
 - [Software](#software)
