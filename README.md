@@ -8,7 +8,6 @@
 - [Team Members](#team-members)
 - [Hardware](#hardware)
 - [Software](#software)
-- [Project Structure](#project-structure)
 - [Images](#images)
 - [Documents](#documents)
 - [Videos](#videos)
@@ -45,15 +44,15 @@ This repository showcases the culminating project for the Modern Control Systems
 
 ## Software
 
-### Matlab
-1. **PID Tuning and Analysis:** The MATLAB code for PID tuning and analysis is located in the `MatLab` folder, named `Analysis.mlx`.
-2. **MATLAB-Arduino Connection:** Code enabling the user to assign the set point from MATLAB, plot real-time response, and send new PID parameters to Arduino. The file is in the `MatLab` folder, named `Bonus.m`.
-3. **GUI for Interactive Display:** Interactive display with sliders for Kp and Ts, controlling Step-Response Plot and Pole-Zero Map Plot. Located in the `MatLab` folder, named `GUI.mlapp`.
+### MATLAB
+1. **PID Tuning and Analysis:** The MATLAB code for PID tuning and analysis is located in the `MATLAB` folder, named `Analysis.mlx`.
+2. **MATLAB-Arduino Connection:** Code enabling the user to assign the set point from MATLAB, plot real-time response, and send new PID parameters to Arduino. The file is in the `MATLAB` folder, named `Bonus.m`.
+3. **GUI for Interactive Display:** Interactive display with sliders for Kp and Ts, controlling Step-Response Plot and Pole-Zero Map Plot. Located in the `MATLAB` folder, named `GUI.mlapp`.
 
 ### Arduino
 - Two codes are available in the `Arduino` folder:
-  1. `Air_Leviation_Control_System_With_Connection_With_Matlab.ino`
-  2. `Air_Leviation_Control_System_Without_Connection_With_Matlab.ino`
+  1. `Air_Leviation_Control_System_With_Connection_With_MATLAB.ino`
+  2. `Air_Leviation_Control_System_Without_Connection_With_MATLAB.ino`
 
 ## Images
 
