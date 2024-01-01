@@ -27,7 +27,7 @@ This repository showcases the culminating project for the Modern Control Systems
 - Ahmed Dawood 
   - LinkedIn: ([Ahmed Dawood](https://www.linkedin.com/in/ahmed-dawod-088539223/))
 - Ahmed Yousri
-  - LinkedIn: [Ahmed Yousri](https://www.linkedin.com/in/ahmed-yousry-807582196/)
+  - LinkedIn: ([Ahmed Yousri](https://www.linkedin.com/in/ahmed-yousry-807582196/))
 - Ahmed Ashraf 
   - LinkedIn: ([Ahmed Ashraf](https://www.linkedin.com/in/telemachus19/))
 
